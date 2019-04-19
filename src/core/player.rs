@@ -1,5 +1,7 @@
 use std::io;
 
+const INITIAL_POINTS: i16 = 0;
+
 pub struct Player {
     pub name: String,
     pub points: i16,
@@ -14,7 +16,7 @@ impl Player {
 
         Player {
             name: player_name,
-            points: 0,
+            points: INITIAL_POINTS,
         }
     }
 }

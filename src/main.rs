@@ -16,8 +16,6 @@ fn main() {
         players.push(p);
     }
 
-    let mut result = false;
-
     for _t in 0..TURNS {
         println!("Turn: {}", _t);
 
@@ -31,14 +29,14 @@ fn main() {
                 continue;
             }
 
-            result = mtc::number_cmp(guess, secret_number);
+            let result = mtc::number_cmp(guess, secret_number);
             if result == true {
-                p.points = p.points + 1;
+                p.points += 1;
                 println!("{} has won, now has: {} points", p.name, p.points);
                 return;
             }
         }
     }
 
-    println!("You haven't won");
+    println!("You lost");
 }
