@@ -6,7 +6,7 @@ use self::helpers::{mtc, parser, random};
 use std::io;
 
 fn main() {
-    const TURNS: i16 = 8;
+    const TURNS: i32 = 8;
     let secret_number = random::number();
     let new_game = game::Game::new();
     let mut players: Vec<player::Player> = Vec::new();
@@ -24,14 +24,14 @@ fn main() {
             let mut guess = String::new();
             io::stdin().read_line(&mut guess).expect("Failed");
 
-            let guess: u32 = parser::number(secret_number, guess);
-            if guess == 0 {
+            let guess: i32 = parser::number(secret_number, guess);
+            if guess == -1 {
                 continue;
             }
 
             let result = mtc::number_cmp(guess, secret_number);
             if result == true {
-                p.points += 1;
+                p.points += p.points + 1;
                 println!("{} has won, now has: {} points", p.name, p.points);
                 return;
             }

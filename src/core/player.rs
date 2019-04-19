@@ -1,10 +1,10 @@
 use std::io;
 
-const INITIAL_POINTS: i16 = 0;
+const INITIAL_POINTS: i32 = 0;
 
 pub struct Player {
     pub name: String,
-    pub points: i16,
+    pub points: i32,
 }
 
 impl Player {

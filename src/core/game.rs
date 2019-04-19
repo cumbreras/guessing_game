@@ -1,11 +1,11 @@
 use std::io;
 
-const INITIAL_ROUNDS: i16 = 0;
-const DEFAULT_PLAYERS: i16 = 1;
+const INITIAL_ROUNDS: i32 = 0;
+const DEFAULT_PLAYERS: i32 = 1;
 
 pub struct Game {
-    pub players: i16,
-    pub rounds: i16,
+    pub players: i32,
+    pub rounds: i32,
 }
 
 impl Game {
@@ -19,7 +19,7 @@ impl Game {
             .read_line(&mut number_of_players)
             .expect("Failed");
 
-        let number_of_players: i16 = match number_of_players.trim().parse() {
+        let number_of_players: i32 = match number_of_players.trim().parse() {
             Ok(num) => num,
             Err(_) => DEFAULT_PLAYERS,
         };
