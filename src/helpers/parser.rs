@@ -1,4 +1,4 @@
-pub fn number(secret_number: i32, guess: String) -> i32 {
+pub fn number(guess: String, secret_number: &i32) -> i32 {
     return match guess.trim().parse() {
         Ok(num) => num,
         Err(val) => {
