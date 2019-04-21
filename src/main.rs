@@ -13,13 +13,12 @@ fn main() {
 
         for p in current_game.players.iter_mut() {
             let guess = user_input::get(&format!("Give me a guess: {}", p.name));
-            let guess: Option<i32> = parser::number(guess, &current_game.secret_number);
+            let guess: Option<i32> = parser::number(guess);
 
             match guess {
                 None => continue,
                 Some(guess) => {
-                    let result = mtc::number_cmp(guess, &current_game.secret_number);
-                    if result {
+                    if mtc::number_cmp(guess, &current_game.secret_number) {
                         p.won();
                         println!(
                             "{} has won this turn, now has: {} points",
